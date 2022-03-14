@@ -13,11 +13,11 @@ export class ProspectosDTO {
     @IsNotEmpty()
     ap_paterno: string;
     @IsString()
-    @Length(1, 191)
+    @Length(0, 191)
     @IsOptional()
     ap_materno: string;
     @IsString()
-    @Length(0, 191)
+    @Length(1, 191)
     @IsNotEmpty()
     calle: string;
     @IsString()
