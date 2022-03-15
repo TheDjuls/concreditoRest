@@ -40,6 +40,9 @@ export class ProspectosDTO {
     @Length(13)
     @IsNotEmpty()
     rfc: string;
+    @IsInt()
+    @IsNotEmpty()
+    usuarioCapturoId: number
 }
 
 export class ArchivoDTO {

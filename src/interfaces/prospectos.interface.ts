@@ -9,6 +9,7 @@ export interface Prospectos {
     codigo_postal: string;
     telefono: string;
     rfc: string;
+    usuarioCapturoId: number
 }
 
 export interface Archivos {

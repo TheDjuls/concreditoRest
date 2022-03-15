@@ -43,7 +43,8 @@ export class ProspectosService {
                 codigo_postal: prospecto.codigo_postal,
                 telefono: prospecto.telefono,
                 rfc: prospecto.rfc,
-                estatusProspectoId: 0
+                estatusProspectoId: 0,
+                usuarioCapturoId:prospecto.usuarioCapturoId
             }
         })
         return prospectos

@@ -11,34 +11,46 @@ datasource db {
 }
 
 model EstatusProspecto {
-  id        Int     @id
-  estatus String
+  id        Int         @id
+  estatus   String
   prospecto Prospecto[]
 }
 
 model Prospecto {
-  id        Int      @default(autoincrement()) @id
-  nombre     String
-  ap_paterno   String
-  ap_materno   String?
-  calle   String
-  numero   String
-  colonia   String
-  codigo_postal   String
-  telefono   String
-  rfc   String
-  observaciones String?
+  id                 Int              @id @default(autoincrement())
+  nombre             String
+  ap_paterno         String
+  ap_materno         String?
+  calle              String
+  numero             String
+  colonia            String
+  codigo_postal      String
+  telefono           String
+  rfc                String
+  observaciones      String?
   //relations
-  estatus   EstatusProspecto @relation(fields: [estatusProspectoId], references: [id])
+  estatus            EstatusProspecto @relation(fields: [estatusProspectoId], references: [id])
   estatusProspectoId Int
-  documentos Documentos[]
+  usuario            Usuarios @relation(fields: [usuarioCapturoId], references: [id])
+  usuarioCapturoId   Int 
+  documentos         Documentos[]
 }
 
 model Documentos {
-  id        Int      @default(autoincrement()) @id
-  nombre_documento     String
-  url     String
+  id               Int       @id @default(autoincrement())
+  nombre_documento String
+  url              String
   //relations
-  prospecto   Prospecto @relation(fields: [prospectoId], references: [id])
-  prospectoId Int
+  prospecto        Prospecto @relation(fields: [prospectoId], references: [id])
+  prospectoId      Int
+}
+
+model Usuarios {
+  id         Int    @id @default(autoincrement())
+  nombre     String?
+  ap_paterno String?
+  ap_materno String?
+  nombre_usuario String
+  password String
+  prospecto Prospecto[]
 }
